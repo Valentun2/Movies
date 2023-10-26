@@ -33,6 +33,7 @@ const MovieDetails = () => {
     <Container>
       <Div>
         <img
+        alt='poster'
           src={
             movieInfo.poster_path
               ? `https://image.tmdb.org/t/p/w400/${movieInfo.poster_path}`
