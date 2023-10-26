@@ -21,7 +21,7 @@ const Reviews = () => {
       }
     }
     getReviews();
-  }, []);
+  }, [param.id]);
   return (
     <Container>
       <ul>

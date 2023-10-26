@@ -17,7 +17,7 @@ const Cast = () => {
       .catch(err => {
         console.log(err);
       });
-  }, []);
+  }, [param.id]);
 
   return (
     <Container>

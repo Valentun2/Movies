@@ -27,7 +27,7 @@ const MovieDetails = () => {
       }
     }
     search();
-  }, []);
+  }, [params.id]);
 
   return (
     <Container>
