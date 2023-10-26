@@ -6,6 +6,7 @@ const Actor = props => {
       <img
         width={200}
         height={300}
+        alt='photo'
         src={
           props.data.profile_path
             ? `https://image.tmdb.org/t/p/original/${props.data.profile_path}`

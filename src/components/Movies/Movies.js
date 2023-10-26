@@ -7,7 +7,6 @@ import { useEffect } from 'react';
 import LoadMore from 'components/LoadMore/LoadMore';
 import { Watch } from 'react-loader-spinner';
 import { Container } from 'components/Container.styled';
-import { P } from './Movies.styled';
 
 const Movies = () => {
   const [arrayMovies, setArrayMovies] = useState([]);

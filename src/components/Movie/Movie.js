@@ -7,6 +7,7 @@ const Movie = props => {
       <img
         width={250}
         height={350}
+        alt='photo'
         src={
           props.arr.poster_path
             ? `https://image.tmdb.org/t/p/original/${props.arr.poster_path}`
