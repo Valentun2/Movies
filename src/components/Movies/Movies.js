@@ -7,6 +7,7 @@ import { useEffect } from 'react';
 import LoadMore from 'components/LoadMore/LoadMore';
 import { Watch } from 'react-loader-spinner';
 import { Container } from 'components/Container.styled';
+import {  useSearchParams } from 'react-router-dom';
 
 const Movies = () => {
   const [arrayMovies, setArrayMovies] = useState([]);
@@ -14,6 +15,7 @@ const Movies = () => {
   const [query, setQuery] = useState('');
   const [visibleButton, setVisibleButton] = useState(false);
   const [loading, setLoading] = useState(false);
+const [params,setParams]= useSearchParams()
 
   const onSubmit = e => {
     e.preventDefault();
@@ -24,12 +26,13 @@ const Movies = () => {
     setPage(1);
     setArrayMovies([]);
     setVisibleButton(false);
+    setParams({'query':e.target.search.value})
   };
 
   useEffect(() => {
     async function arrMovies() {
       if (query === '') {
-        return;
+        setQuery(params.get('query') ?? '')
       }
       setLoading(true);
       try {
@@ -47,7 +50,7 @@ const Movies = () => {
       }
     }
     arrMovies();
-  }, [page, query]);
+  }, [page, query,params]);
 
   const loadMore = () => {
     setPage(prev => prev + 1);
@@ -55,7 +58,7 @@ const Movies = () => {
 
   return (
     <>
-      <Seachbar onSubmit={onSubmit} />
+      <Seachbar onSubmit={onSubmit} value={params.get('query')}/>
       <Container>
         <List>
           {arrayMovies.map(movie => {

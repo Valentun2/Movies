@@ -1,9 +1,13 @@
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { P } from './Movie.styled';
 
-const Movie = props => {
+const Movie = (props)=> {
+
+  const location = useLocation()
+console.log(location);
+
   return (
-    <Link to={props.pageHome ? `movies/${props.arr.id}` : `${props.arr.id}`}>
+    <Link to={props.pageHome ? `movies/${props.arr.id}` : `${props.arr.id}`} state={location}>
       <img
         width={250}
         height={350}

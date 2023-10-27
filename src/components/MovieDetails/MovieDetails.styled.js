@@ -26,3 +26,13 @@ export const Film = styled.h1`
 export const H3 = styled.h3`
   margin: 12px 0;
 `;
+
+export const BtnBack = styled(Link)`
+display:inline-block;
+height: 30px;
+width: 45px;
+padding: 5px;
+margin-bottom:10px;
+background:blue;
+color:white
+`

@@ -1,8 +1,9 @@
-import {  Outlet, useParams } from 'react-router-dom';
+import {  Link, Outlet, useLocation, useParams, useSearchParams } from 'react-router-dom';
 import { searchMovieForId } from 'apiMovieId';
 import { useEffect, useState } from 'react';
 import { Container } from 'components/Container.styled';
 import {
+  BtnBack,
   Div,
   DivContainer,
   DivWrraper,
@@ -15,6 +16,13 @@ const MovieDetails = () => {
   const [movieInfo, setMovieInfo] = useState({});
   const [genres, setGenres] = useState([]);
   const params = useParams();
+// console.log(props);
+  const location = useLocation()
+console.log(location);
+
+
+const [param,setParams]= useSearchParams()
+console.log(param);
 
   useEffect(() => {
     async function search() {
@@ -31,6 +39,8 @@ const MovieDetails = () => {
 
   return (
     <Container>
+
+      <BtnBack to={location.state}>Back</BtnBack>
       <Div>
         <img
         alt='poster'
