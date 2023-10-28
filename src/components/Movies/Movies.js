@@ -30,14 +30,15 @@ const [params,setParams]= useSearchParams()
   };
 
   useEffect(() => {
-    async function arrMovies() {
-      if (query === '') {
-        setQuery(params.get('query') ?? '')
+    if (query === '') {
+      setQuery(params.get('query') ?? '')
       }
-      setLoading(true);
-      try {
-        const movies = await searchMovies(query, page);
-        setArrayMovies(prev => [...prev, ...movies.results]);
+   
+    async function arrMovies() {
+        setLoading(true);
+        try {
+          const movies = await searchMovies(query, page);
+          setArrayMovies(prev => [...prev, ...movies.results]);
         if (movies.total_pages > page) {
           setVisibleButton(true);
         } else {
@@ -50,15 +51,16 @@ const [params,setParams]= useSearchParams()
       }
     }
     arrMovies();
-  }, [page, query]);
+  }, [page, query,params]);
 
   const loadMore = () => {
     setPage(prev => prev + 1);
   };
+  console.log(arrayMovies);
 
   return (
     <>
-      <Seachbar onSubmit={onSubmit} value={params.get('query')}/>
+      <Seachbar onSubmit={onSubmit} />
       <Container>
         <List>
           {arrayMovies.map(movie => {
