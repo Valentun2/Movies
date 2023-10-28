@@ -50,7 +50,7 @@ const [params,setParams]= useSearchParams()
       }
     }
     arrMovies();
-  }, [page, query,params]);
+  }, [page, query]);
 
   const loadMore = () => {
     setPage(prev => prev + 1);

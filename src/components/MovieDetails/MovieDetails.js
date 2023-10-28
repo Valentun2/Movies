@@ -15,13 +15,17 @@ import {
 const MovieDetails = () => {
   const [movieInfo, setMovieInfo] = useState({});
   const [genres, setGenres] = useState([]);
+const [locationState, setLocationState] = useState({});
+
   const params = useParams();
   const location = useLocation()
 
 
-// const [param]= useSearchParams()
+
+
 
   useEffect(() => {
+    setLocationState(location.state)
     async function search() {
       try {
         const arr = await searchMovieForId(params.id);
@@ -37,7 +41,7 @@ const MovieDetails = () => {
   return (
     <Container>
 
-      <BtnBack to={location.state}>Back</BtnBack>
+      <BtnBack to={locationState}>Back</BtnBack>
       <Div>
         <img
         alt='poster'
@@ -60,7 +64,7 @@ const MovieDetails = () => {
       
         <h3>Additional information:</h3>
         <DivWrraper>
-          <StyleLink to={'cast'}>Actors</StyleLink>
+          <StyleLink to={'cast'}  >Actors</StyleLink>
           <StyleLink to={'reviews'}>Reviews</StyleLink>
         </DivWrraper>
       </DivContainer>

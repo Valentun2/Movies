@@ -2,13 +2,15 @@ import { getInformation } from 'apiAuthorsRewies';
 import { Container } from 'components/Container.styled';
 import Review from 'components/Review/Review';
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import {  useParams } from 'react-router-dom';
 import { Li } from './Reviews.styled';
 
 
 const Reviews = () => {
   const [reviews, setReviews] = useState([]);
   const param = useParams();
+
+
 
   useEffect(() => {
     async function getReviews() {
