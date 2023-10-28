@@ -1,4 +1,4 @@
-import {   Outlet, useLocation, useParams, useSearchParams } from 'react-router-dom';
+import {   Outlet, useLocation, useParams } from 'react-router-dom';
 import { searchMovieForId } from 'apiMovieId';
 import { useEffect, useState } from 'react';
 import { Container } from 'components/Container.styled';
