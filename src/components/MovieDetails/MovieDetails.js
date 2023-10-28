@@ -23,10 +23,12 @@ const [locationState, setLocationState] = useState({});
 
 
 
+useEffect(()=>{
+  setLocationState(location.state)
 
+},[])
 
   useEffect(() => {
-    setLocationState(location.state)
     async function search() {
       try {
         const arr = await searchMovieForId(params.id);
