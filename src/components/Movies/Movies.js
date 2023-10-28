@@ -35,6 +35,7 @@ const [params,setParams]= useSearchParams()
   };
 
   useEffect(() => {
+    
     async function arrMovies() {
       if (query === '') {
         setQuery(params.get('query') ?? '')

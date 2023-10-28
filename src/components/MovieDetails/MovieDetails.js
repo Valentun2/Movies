@@ -21,12 +21,18 @@ const [locationState, setLocationState] = useState({});
   const params = useParams();
   const location = useLocation()
 
+
+
+
 useEffect(()=>{
-  setLocationState(location.state)
-
-},[])
-
-
+  const f = ()=>{
+    setLocationState(location.state)
+  };
+  if(location.state === null ){
+    return
+  }
+  f()
+},[location.state])
 
   useEffect(() => {
     async function search() {
@@ -39,7 +45,7 @@ useEffect(()=>{
       }
     }
     search();
-  }, [params.id,location.state]);
+  }, [params.id]);
 
   return (
     <Container>
