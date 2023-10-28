@@ -19,7 +19,7 @@ const MovieDetails = () => {
   const location = useLocation()
 
 
-const [param]= useSearchParams()
+// const [param]= useSearchParams()
 
   useEffect(() => {
     async function search() {
