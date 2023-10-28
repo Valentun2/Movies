@@ -1,18 +1,18 @@
-import { useSearchParams } from 'react-router-dom';
 import { Button, Div, Form, Input, Svg } from './Seachbar.styled';
 
-const Seachbar = ({ onSubmit }) => {
+const Seachbar = ({ onSearch }) => {
 
   
-  const [searchParams,setSearchParams]=useSearchParams()
-const onChange = e =>{
-  setSearchParams({'query':e.target.value})
-}
+
+const onSubmit = evt => {
+  evt.preventDefault();
+ onSearch(evt.target.search.value);
+};
 
   return (
     <Form onSubmit={onSubmit}>
       <Div>
-        <Input type="text" name="search" placeholder="Search" value={searchParams.get('query') ?? ""} onChange={onChange}/>
+        <Input type="text" name="search" placeholder="Search" />
         <Button>
           <Svg />
         </Button>
