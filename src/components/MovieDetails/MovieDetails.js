@@ -13,6 +13,7 @@ import {
 } from './MovieDetails.styled';
 
 const MovieDetails = () => {
+  
   const [movieInfo, setMovieInfo] = useState({});
   const [genres, setGenres] = useState([]);
 const [locationState, setLocationState] = useState({});
