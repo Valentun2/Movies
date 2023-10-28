@@ -4,7 +4,6 @@ import { P } from './Movie.styled';
 const Movie = (props)=> {
 
   const location = useLocation()
-console.log(location);
 
   return (
     <Link to={props.pageHome ? `movies/${props.arr.id}` : `${props.arr.id}`} state={location}>

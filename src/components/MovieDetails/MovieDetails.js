@@ -16,13 +16,10 @@ const MovieDetails = () => {
   const [movieInfo, setMovieInfo] = useState({});
   const [genres, setGenres] = useState([]);
   const params = useParams();
-// console.log(props);
   const location = useLocation()
-console.log(location);
 
 
 const [param]= useSearchParams()
-console.log(param);
 
   useEffect(() => {
     async function search() {
