@@ -1,13 +1,14 @@
 import { searchMovies } from 'apiSearchMovies';
 import { useState } from 'react';
 import Movie from 'components/Movie/Movie';
-import { Item, List } from 'components/Home/Home.styled';
+
 import Seachbar from 'components/Seachbar/Seachbar';
 import { useEffect } from 'react';
 import LoadMore from 'components/LoadMore/LoadMore';
 import { Watch } from 'react-loader-spinner';
 import { Container } from 'components/Container.styled';
 import {   useSearchParams } from 'react-router-dom';
+import { Item, List } from 'pages/Home/Home.styled';
 
 const Movies = () => {
   const [arrayMovies, setArrayMovies] = useState([]);
