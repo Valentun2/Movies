@@ -1,6 +1,6 @@
 import {   Outlet, useLocation, useParams } from 'react-router-dom';
 import { searchMovieForId } from 'apiMovieId';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Container } from 'components/Container.styled';
 import {
   BtnBack,
@@ -16,23 +16,20 @@ const MovieDetails = () => {
   
   const [movieInfo, setMovieInfo] = useState({});
   const [genres, setGenres] = useState([]);
-const [locationState, setLocationState] = useState({});
 
   const params = useParams();
   const location = useLocation()
+const back = useRef(location )
 
-
-
-
-useEffect(()=>{
-  const f = ()=>{
-    setLocationState(location.state)
-  };
-  if(location.state === null ){
-    return
-  }
-  f()
-},[location.state])
+// useEffect(()=>{
+//   const f = ()=>{
+//     setLocationState(location.state)
+//   };
+//   if(location.state === null ){
+//     return
+//   }
+//   f()
+// },[location.state])
 
   useEffect(() => {
     async function search() {
@@ -50,7 +47,7 @@ useEffect(()=>{
   return (
     <Container>
 
-      <BtnBack to={locationState}>Back</BtnBack>
+      <BtnBack to={back.current.state}>Back</BtnBack>
       <Div>
         <img
         alt='poster'
